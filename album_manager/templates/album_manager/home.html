@@ -1,0 +1,9 @@
+{% extends 'album_manager/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Bienvenido al Catálogo de Musica</h1>
+<a href="{% url 'artist_list' %}" class="btn btn-primary">Lista de Artistas</a>
+<a href="{% url 'album_list' %}" class="btn btn-primary">Lista de Albums</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'album_manager/base.html' %}
+
+{% block title %}Borrar Artista{% endblock %}
+
+{% block content %}
+<h1>Borrar Artista</h1>
+<p>¿Estás seguro de que quieres eliminar "{{ artist.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Si, Borrar</button>
+    <a href="{% url 'artist_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'album_manager/base.html' %}
+
+{% block title %}{% if form.instance.pk %}Editar Artista{% else %}Crear Artista{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Editar Artista{% else %}Crear Artista{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+<a href="{% url 'artist_list' %}" class="btn btn-secondary">Regresar a la lista</a>
+{% endblock %}

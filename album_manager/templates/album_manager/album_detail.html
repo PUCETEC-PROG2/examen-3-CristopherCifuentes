@@ -1,0 +1,14 @@
+{% extends 'album_manager/base.html' %}
+
+{% block title %}Detalles del Album{% endblock %}
+
+{% block content %}
+<h1>{{ album.title }}</h1>
+<p>Año de lanzamiento: {{ album.release_year }}</p>
+<p>Genero: {{ album.genre }}</p>
+<p>Artista: {{ album.artist.name }}</p>
+<img src="{{ album.cover.url }}" alt="Album Cover" class="img-thumbnail">
+<a href="{% url 'album_update' album.pk %}" class="btn btn-secondary">Editar</a>
+<a href="{% url 'album_delete' album.pk %}" class="btn btn-danger">Borrar</a>
+<a href="{% url 'album_list' %}" class="btn btn-primary">Regresar a la lista</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'album_manager/base.html' %}
+
+{% block title %}Lista de Artistas{% endblock %}
+
+{% block content %}
+<h1>Lista de Artistas</h1>
+<a href="{% url 'artist_create' %}" class="btn btn-success mb-3">Crear Nuevo Artista</a>
+<ul class="list-group">
+    {% for artist in artists %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'artist_detail' artist.pk %}">{{ artist.name }}</a>
+        <div>
+            <a href="{% url 'artist_update' artist.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+            <a href="{% url 'artist_delete' artist.pk %}" class="btn btn-danger btn-sm">Borrar</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
